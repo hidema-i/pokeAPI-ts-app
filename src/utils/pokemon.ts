@@ -1,5 +1,15 @@
 import axios from "axios";
 
+export interface PokemonTypes {
+  type: {
+    name: string;
+  };
+}
+
+export interface PokemonAbility {
+  ability: { name: string };
+}
+
 // Pokemonの型定義
 export interface Pokemon {
   name: string;
@@ -7,22 +17,10 @@ export interface Pokemon {
   sprites: {
     front_default: string;
   };
-  types: [
-    {
-      type: {
-        name: string;
-      };
-    }
-  ];
+  types: PokemonTypes[];
   weight: number;
   height: number;
-  abilities: [
-    {
-      ability: {
-        name: string;
-      };
-    }
-  ];
+  abilities: [PokemonAbility];
 }
 
 // すべてのポケモンの情報を取得する関数
