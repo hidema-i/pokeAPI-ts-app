@@ -1,0 +1,92 @@
+.nav {
+  background-color: rgb(235, 200, 148);
+  color: black;
+  height: 65px;
+  font-weight: 600;
+  font-size: 25px;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo {
+  margin-left: 18px;
+}
+
+.links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 40%;
+}
+
+.links a {
+  font-size: 15px;
+  color: black;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.links a:hover {
+  color: rgb(112, 112, 112);
+  transition: all 0.3s;
+}
+
+@media screen and (max-width: 768px) {
+  .links {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: #b7b3b3;
+    height: calc(300px - 70px);
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 1; /* 追加 */
+  }
+
+  .links.show {
+    opacity: 1;
+  }
+
+  .links a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .links {
+    justify-content: space-evenly;
+  }
+
+  .menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .menu-line {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+    transition: all 0.3s; /* 追加 */
+  }
+
+  .menu.open .menu-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .menu.open .menu-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu.open .menu-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+}
